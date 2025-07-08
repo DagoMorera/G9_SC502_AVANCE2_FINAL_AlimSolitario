@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="Estilos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AlimSolidario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">AlimSolidario</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Donar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Recibir</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="navLogin">Iniciar sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mt-4 container-principal">
+    <section id="bienvenida">
+      <h1 class="mb-4">Bienvenidos a AlimSolidario</h1>
+      <p>
+        Plataforma para reducir el desperdicio de alimentos conectando donadores con personas necesitadas.
+      </p>
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="#" class="btn btn-outline-primary">Iniciar sesión</a>
+        <a href="#" class="btn btn-primary">Registrarse</a>
+      </div>
+    </section>
+
+    <section id="registro" class="mt-4" style="display: none;">
+      <div class="card mx-auto" style="max-width: 600px;">
+        <div class="card-body">
+          <h3 class="card-title mb-4 text-center">Formulario de Registro</h3>
+          <form>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required>
+              </div>
+              <div class="col">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="cedula" class="form-label">Cédula</label>
+              <input type="text" class="form-control" id="cedula" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="correo" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="correo" required>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col">
+                <label for="provincia" class="form-label">Provincia</label>
+                <input type="text" class="form-control" id="provincia" required>
+              </div>
+              <div class="col">
+                <label for="canton" class="form-label">Cantón</label>
+                <input type="text" class="form-control" id="canton" required>
+              </div>
+              <div class="col">
+                <label for="distrito" class="form-label">Distrito</label>
+                <input type="text" class="form-control" id="distrito" required>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="telefono" class="form-label">Número de celular</label>
+              <input type="tel" class="form-control" id="telefono" required>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Registrarse</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="login" class="mt-4" style="display: none;">
+      <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+          <h3 class="card-title mb-4 text-center">Iniciar Sesión</h3>
+          <form>
+            <div class="mb-3">
+              <label for="login-cedula" class="form-label">Cédula</label>
+              <input type="text" class="form-control" id="login-cedula" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="login-telefono" class="form-label">Número de celular</label>
+              <input type="tel" class="form-control" id="login-telefono" required>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-success">Continuar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 AlimSolidario - Todos los derechos reservados
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btnRegistro = document.querySelector('.btn-primary');
+    const btnLogin = document.querySelector('.btn-outline-primary');
+    const seccionRegistro = document.getElementById('registro');
+    const seccionLogin = document.getElementById('login');
+
+    btnRegistro.addEventListener('click', function (e) {
+      e.preventDefault();
+      seccionRegistro.style.display = 'block';
+      seccionLogin.style.display = 'none';
+      window.scrollTo({ top: seccionRegistro.offsetTop, behavior: 'smooth' });
+    });
+
+    btnLogin.addEventListener('click', function (e) {
+      e.preventDefault();
+      seccionLogin.style.display = 'block';
+      seccionRegistro.style.display = 'none';
+      window.scrollTo({ top: seccionLogin.offsetTop, behavior: 'smooth' });
+    });
+
+    // Nuevo código para que el enlace en el menú muestre el login
+    const navLogin = document.getElementById('navLogin');
+
+    navLogin.addEventListener('click', function(e) {
+      e.preventDefault();
+      seccionLogin.style.display = 'block';
+      seccionRegistro.style.display = 'none';
+      window.scrollTo({ top: seccionLogin.offsetTop, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
